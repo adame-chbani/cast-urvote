@@ -35,7 +35,7 @@ var app = new Vue({
         connected: false
     },
     async mounted() {
-        console.log("Mounted")
+        console.log(document.cookie)
         var verif = this.readCookie("connected")
         if (verif.localeCompare("true") == 0){
             console.log("finito")
@@ -77,8 +77,6 @@ var app = new Vue({
                     }
                 })
             if (userData.status === 200) {
-                console.log("HEEEEEEEERE")
-                console.log("Data are" ,userData.data)
                 this.connected = true;
 
                 document.cookie = "connected="+ userData.data.connected;
@@ -102,16 +100,13 @@ var app = new Vue({
                 router.push('/lobby')
             }
         },
-        async logOut() {
-            if (await axios.post('/api/logout/')
-                .catch(function(error) {
-                    if (error.response.status === 400 || error.response.status === 401) {
-                        console.log(error)
-                    }
-                })) {
-                this.connected = false;
-                router.push('/')
-            }
+        logOut() {
+            let date = (function(d){ d.setDate(d.getDate()-1); return d})(new Date)
+            document.cookie.split(";").forEach(function(c) { 
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + date.toUTCString() + ";path=/"); 
+            });
+            this.connected = false;
+            router.push('/')
         },
         async addSample(newSample) {
             if (await axios.post('/api/sample/', newSample)
