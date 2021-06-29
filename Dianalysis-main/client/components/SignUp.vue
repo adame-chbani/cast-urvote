@@ -6,6 +6,14 @@
         <form @submit.prevent="addUser">
           <h1>Inscription</h1>
 
+        <div>
+          <label for="role">Role* :</label>
+          <select name="role" id="role">
+            <option value="votant" checked>Votant</option>
+            <option value="candidat">Candidat</option>
+          </select>
+        </div>
+
           <div>
             <label for="name">Nom* :</label>
             <input
@@ -59,14 +67,13 @@
             <input type="password" id="confirmationPassword" required />
           </div>
           <div>
-            <label for="Numéro">Carte électoral:</label>
+            <label for="Numéro">Numéro electeur*:</label>
             <input 
-            type="file"
-            id="vote"
-            name="user_vote"
-            @change="onFile"
-            accept="image/png, image/jpeg"
-            required
+              type="number"
+              id="vote"
+              name="vote"
+              v-model="newUser.vote"
+              required
             >
           </div>
 
@@ -98,7 +105,7 @@ module.exports = {
         password: "",
         firstname: "",
         lastname: "",
-        vote: "false",
+        vote: "",
       },
     };
   },
@@ -116,15 +123,6 @@ module.exports = {
     },
     logOut() {
       this.$emit("log-out");
-    },
-    onFile(event) {
-      var files = event.target.files || event.dataTransfer.files;
-      if (!files.length){
-        this.newUser.vote = "false";
-        return;
-      }
-      this.newUser.vote = "true";
-      console.log("The file is : " ,files)
     },
   },
 };
@@ -232,4 +230,6 @@ form div {
 p {
   color: red;
 }
+
+
 </style>

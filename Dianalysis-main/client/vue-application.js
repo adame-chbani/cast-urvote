@@ -65,6 +65,11 @@ var app = new Vue({
                     document.getElementById('errorSignUpMessage').innerHTML = "L'adresse email est déjà prise.";
                 })) {
                 this.connected = true;
+                document.cookie = "connected="+ true;
+                document.cookie = "idUser="+ newUser.idUser;
+                document.cookie = "email="+ newUser.email;
+                document.cookie = "idCandidate="+ newUser.idCandidate;
+                console.log("document.cookie = " + document.cookie);
                 router.push('/lobby')
             }
         },
