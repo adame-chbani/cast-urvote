@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    background-color: black;
 }
 
 
@@ -73,6 +74,7 @@ header div {
 /* footer */
 
 footer {
+    margin-top: 20%;
     color: rgb(145, 148, 150);
     background-color: black;
     background-image: none;

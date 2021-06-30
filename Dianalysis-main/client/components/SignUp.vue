@@ -5,11 +5,14 @@
       <div id="container">
         <form @submit.prevent="addUser">
           <h1>Inscription</h1>
+          <div>
+            <p id="validateSignUpCandidate"></p>
+          </div>
 
         <div>
           <label for="role">Role* :</label>
-          <select name="role" id="role">
-            <option value="votant" checked>Votant</option>
+          <select id="role" name="role" v-model="newUser.role">
+            <option value="votant" selected>Votant</option>
             <option value="candidat">Candidat</option>
           </select>
         </div>
@@ -106,6 +109,7 @@ module.exports = {
         firstname: "",
         lastname: "",
         vote: "",
+        role: ""
       },
     };
   },
@@ -115,7 +119,13 @@ module.exports = {
         document.getElementById("password").value ==
         document.getElementById("confirmationPassword").value
       ) {
-        this.$emit("add-user", this.newUser);
+        if(this.newUser.role == "votant"){
+          delete this.newUser.role;
+          this.$emit("add-user", this.newUser);
+        }else{
+          delete this.newUser.role;
+          this.$emit("add-acandidat", this.newUser);
+        }
       } else {
         document.getElementById("errorSignUpMessage").innerHTML =
           "Mot de passe non identique.";
@@ -142,6 +152,8 @@ section {
   justify-content: center;
   align-content: center;
   margin: 0 auto;
+  margin-top: 40%;
+  margin-bottom: 20%;
 }
 
 #image {
@@ -229,6 +241,12 @@ form div {
 
 p {
   color: red;
+}
+
+p#validateSignUpCandidate{
+  color: rgb(31, 253, 31);
+  border: 1px solid rgb(31, 253, 31);
+  visibility: hidden;
 }
 
 

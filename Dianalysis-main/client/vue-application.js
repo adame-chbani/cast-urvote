@@ -73,6 +73,16 @@ var app = new Vue({
                 router.push('/lobby')
             }
         },
+        async addACandidat(newUser) {
+            console.log(newUser)
+            if (await axios.post('https://cast-ur-vote.herokuapp.com/signup?type=candidat', newUser)
+                .catch(function(error) {
+                    document.getElementById('errorSignUpMessage').innerHTML = "L'adresse email est déjà prise.";
+                })) {
+                    document.getElementById('validateSignUpCandidate').innerHTML = "l'administrateur va procéder à la validation de votre compte";
+                    document.getElementById('validateSignUpCandidate').style.visibility = 'visible';
+            }
+        },
         async logIn(user) {
             const userData = await axios.post('https://cast-ur-vote.herokuapp.com/login?type=user', user)
                 .catch(function(error) {
