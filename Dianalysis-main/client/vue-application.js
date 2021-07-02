@@ -83,11 +83,7 @@ var app = new Vue({
             }
         },
         async logIn(user) {
-            const userData = await axios.post('https://cast-ur-vote.herokuapp.com/login?type=user', user)
-                .then(function (response) {
-                    // handle success
-                    console.log(response);
-                })    
+            const userData = await axios.post('https://cast-ur-vote.herokuapp.com/login?type=user', user)   
                 .catch(function(error) {
                     if (error.response.status === 400 || error.response.status === 401) {
                         document.getElementById('errorLogInMessage').innerHTML = "La combinaison est incorrecte.";
