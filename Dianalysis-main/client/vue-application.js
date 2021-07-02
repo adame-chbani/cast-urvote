@@ -102,7 +102,7 @@ var app = new Vue({
         },
         // LISTE DES CANDIDATS
         async getAllCandidats() {
-            var res =await axios.get('http://127.0.0.1:5000/getcandidat')
+            var res =await axios.get('https://cast-ur-vote.herokuapp.com/getcandidat')
                 .then(function (response) {
                     return response.data
                 })

@@ -2,13 +2,15 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <h2 class="title_container">Liste des candidats</h2>
-
-    <ul id="example-2" :key="componentKey">
-      <li>lol</li>
-      <li v-for="(candidat, index) in candidats" :key="index">
-        {{ candidat }}
-      </li>
-    </ul>   
+     <div class="container">
+      <div v-for="(candidat, index) in candidats" :key="index" class="item">
+        <label> {{ candidat[1] }} - {{ candidat[2] }}</label>
+        </br>
+        <img :src="candidat[8]"/>
+        </br>
+        <label> {{ candidat[9] }}</label>
+      </div>
+    </div>
     
   </section>
 </template>
@@ -46,102 +48,53 @@ module.exports = {
 </script>
 
 <style scoped>
-
-
-
-p {
+h2.title_container{
+  display: block;
+  color : white;
   text-align: center;
-  margin-top: 50px;
+}
+/************************************************
+* ITEM
+************************************************/ 
+ 
+div.container{
+    margin-top: 5%;
+    height: 20%;
+    width: 100%;
+    text-align: center;
 }
 
-label, th{
-  color: white;
-  font-size: 20px;
+.item{
+    display: inline-block;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    padding-top: 2%;
+    width: 40%;
+    height: 35%;
+    background-color:white;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
 }
 
-body {
-  text-align: center;
-  margin-top: 300px;
+.item:last-child{
+  top:50%;
 }
-div {
-  position: relative;
+
+.item img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 5%;
 }
+
 
 section{
-  height: calc(100vh - 320px);
-}
-
-
-
-form{
-  border: 2mm ridge;
-  width: auto;
-  margin: auto;
-  width: 1600px;
-  padding: 30px;
-}
-
-
-
-input + span {
-  padding-right: 30px;
-}
-
-input:invalid + span:after {
-  position: absolute;
-  content: "✖";
-  padding-left: 5px;
-}
-
-input:valid + span:after {
-  position: absolute;
-  content: "✓";
-  padding-left: 5px;
-}
-
-p {
-  color: red;
-}
-
-input{
-  margin: 20px;
-  
-}
-
-.titre_centre{
-    text-align: center;
-}
-
-.title_container {
-    background: rgb(1,25,68);
-    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
-    font-size: 50px;
-    padding-top: 10px;
-    color: white;
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-    height: 100px;
-    margin: 0;
-}
-
-section {
-background-color: rgba(1,25,68,1);
-}
-
-.button_style{
-    color:rgb(255, 255, 255);
-    border-color: rgb(0, 0, 0);
-    background-color: rgb(27, 44, 194);
-    border-radius:10px;
-    display: block;
-    margin: auto auto;
-    height: 2em;
-    margin-top: 10px;
-  }
-
-#errorSampleMessage{
-    margin: 0;
+  background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
 }
 
 </style>
