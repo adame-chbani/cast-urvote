@@ -1,5 +1,8 @@
 body {
     margin: 0;
+    height: 100vh;
+    display:flex; 
+    flex-direction:column; 
     font-family: 'Open Sans', sans-serif;
     background-color: black;
 }
@@ -70,11 +73,16 @@ header div {
     color: #8dffd6;
 }
 
+main{
+    position: relative;
+}
+
 
 /* footer */
 
 footer {
-    margin-top: 20%;
+    clear:both;
+    margin-top: auto;
     color: rgb(145, 148, 150);
     background-color: black;
     background-image: none;
