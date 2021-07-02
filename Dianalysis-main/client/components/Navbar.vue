@@ -99,7 +99,7 @@ header div {
 }
 
 .navbar {
-  background-color: #000000;
+  background-color: #202020;
 }
 
 .navbar .navbar-brand span {
@@ -146,6 +146,6 @@ header div {
   height: 100%;
 }
 #navbarNavDropdown {
-  background-color: #000000;
+  background-color: #202020;
 }
 </style>

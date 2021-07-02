@@ -3,7 +3,7 @@ body {
     height: 100vh;
     display:flex; 
     flex-direction:column; 
-    font-family: 'Open Sans', sans-serif;
+    font-family:'Cardo', serif;
     background-color: black;
 }
 
@@ -82,15 +82,9 @@ main{
 
 footer {
     clear:both;
-<<<<<<< HEAD
-    margin-top: 10%;
-    color: rgb(145, 148, 150);
-    background-color: black;
-=======
     margin-top: auto;
-    color: rgb(146, 24, 24);
+    color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
->>>>>>> 28c6a707ebafd0e8321719585212822c8a2ad59a
     background-image: none;
     box-sizing: border-box;
     display: block;

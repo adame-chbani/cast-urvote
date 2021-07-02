@@ -3,9 +3,9 @@
     <navbar :connected="connected" @log-out="logOut"></navbar>
     
     <div id="section_y">
-      <h2 class="title_container">Menu</h2>
+      
       <div class="sommaire">
-        <router-link class="summary" to="/sample">Voir la liste des candidats</router-link>
+        <router-link class="summary" to="/sample">Liste des candidats</router-link>
         <router-link class="summary" to="/food">Voter</router-link>
       </div>
     </div>
@@ -58,6 +58,9 @@ section {
   text-align: center;
 }
 .sommaire {
+  margin-bottom: 0%;
+  margin-top:50px;
+  font-size:22,9px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,15 +69,15 @@ section {
 .summary {
   color:rgb(255, 255, 255);
   background-color: #033797;
-  height: 140px;
-  width: 50em;
+  height: 130px;
+  width: 40em;
   text-decoration: none;
   text-align: center;
   border: solid #000000;
   border-radius: 10px;
-  padding-top: 35px;
-  margin-top: 5px;
-  margin-bottom:5px; 
+  padding-top: 45px;
+  margin-top: 30px;
+  margin-bottom:20px; 
 }
 
 .summary:hover {

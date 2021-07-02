@@ -4,6 +4,7 @@
     <section>
       <div id="container">
         <form @submit.prevent="addUser">
+           <img src="./img/logo1.png" id="img1" />
           <h1>Inscription</h1>
           <div>
             <p id="validateSignUpCandidate"></p>
@@ -139,10 +140,18 @@ module.exports = {
 </script>
 
 <style scoped>
+#img1{
+   height: 95px;
+  width: 95px;
+  margin:auto;
+  display:block;
+  border-radius:100px;
+
+}
 section {
-  background: linear-gradient(#071e38, #040614);
-  height: calc(125vh - 371px);
-  min-height: 550px;
+  background: rgb(74,95,205);
+  background: linear-gradient(90deg, rgba(74,95,205,1) 0%, rgba(221,227,233,1) 50%, rgba(252,69,69,1) 100%);
+  
   display: flex;
   align-items: center;
   font-family: "Montserrat", sans-serif;
@@ -152,8 +161,9 @@ section {
   justify-content: center;
   align-content: center;
   margin: 0 auto;
-  margin-top: 40%;
-  margin-bottom: 20%;
+  margin-top:50px;
+  margin-bottom: 50px;
+  
 }
 
 #image {
@@ -168,16 +178,18 @@ section {
   padding-bottom: 10px;
   border-radius: 2px;
   text-align: center;
+  font-family: 'Archivo', sans-serif;
 }
 
 form {
-  border-radius: 1em;
+  
   position: relative;
   padding: 30px;
   border: 1px solid #f1f1f1;
   background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  border-radius: 2px;
+  
+  border-radius:30px;
 }
 
 form div + div {
@@ -185,29 +197,30 @@ form div + div {
 }
 
 input[type="submit"] {
-  background-color: #e59c3a;
+  background-color: #2a3088;
   color: white;
   padding: 14px 20px;
-  margin: 20px 0 8px;
+  margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid #e59c3a;
+  border: 1px solid #000000;
 }
 
 input[type="submit"]:hover {
   background-color: white;
-  color: #e59c3a;
-  border: 1px solid #e59c3a;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 label {
   /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
   display: inline-block;
-  color: black;
-  width: 90px;
+  color: rgb(0, 0, 0);
+  width: 120px;
   text-align: right;
+  
 }
 
 input,

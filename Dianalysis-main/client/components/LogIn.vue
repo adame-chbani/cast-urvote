@@ -2,10 +2,14 @@
   <div>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <section>
+      
+      
       <div id="container">
+        
         <!-- zone de connexion -->
 
         <form @submit.prevent="logIn">
+          <img src="./img/logo-rond.png" id="img1" />
           <h1>Connexion</h1>
 
           <label><b> E-mail</b></label>
@@ -66,28 +70,46 @@ module.exports = {
 </script>
 
 <style scoped>
+
+#img1{
+  
+  height: 95px;
+  width: 95px;
+  margin:auto;
+  display:block;
+  border-radius:200px;
+
+
+
+}
 section {
-  background: linear-gradient(#071e38, #040614);
-  height: calc(100vh - 305px);
-  min-height: 500px;
+  background: rgb(74,95,205);
+  background: linear-gradient(90deg, rgba(74,95,205,1) 0%, rgba(221,227,233,1) 50%, rgba(252,69,69,1) 100%);
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   font-family: "Montserrat", sans-serif;
 }
+
 #container {
+  margin-top: 50px;
+  margin-bottom: 50px;
   width: 400px;
-  margin: 0 auto;
+  margin-left:auto;
+  margin-right:auto;
+
 }
 
 form {
   padding: 30px;
   border: 1px solid #f1f1f1;
-  background: #fff;
+  background: rgb(255, 255, 255);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 #container h1 {
+  
   margin: 0 auto;
   padding-bottom: 10px;
   border-radius: 2px;
@@ -106,7 +128,7 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-  background-color: #53af57;
+  background-color: #2a3088;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -114,13 +136,13 @@ input[type="submit"] {
   cursor: pointer;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid #53af57;
+  border: 1px solid #000000;
 }
 
 input[type="submit"]:hover {
   background-color: white;
-  color: #53af57;
-  border: 1px solid #53af57;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 p {
