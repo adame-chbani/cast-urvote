@@ -34,8 +34,7 @@ var app = new Vue({
         connected: false
     },
     async mounted() {
-        this.candidats = this.getAllCandidats();
-        console.log(document.cookie)
+        await this.getAllCandidats();
         var verif = this.readCookie("connected")
         if (verif.localeCompare("true") == 0){
             this.connected = true
@@ -101,16 +100,16 @@ var app = new Vue({
                 router.push('/lobby')
             }
         },
+        // LISTE DES CANDIDATS
         async getAllCandidats() {
             var res =await axios.get('http://127.0.0.1:5000/getcandidat')
                 .then(function (response) {
                     return response.data
                 })
                 .catch(function(error) {
-                    document.getElementById('errorSignUpMessage').innerHTML = "L'adresse email est déjà prise.";
+                    console.log(error)
                 })
-                console.log(res)
-            return res
+            this.candidats = res.data
         },
         logOut() {
             let date = (function(d){ d.setDate(d.getDate()-1); return d})(new Date)

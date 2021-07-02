@@ -3,8 +3,9 @@
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <h2 class="title_container">Liste des candidats</h2>
 
-    <ul id="example-2">
-      <li v-for="(candidats, index) in candidats">
+    <ul id="example-2" :key="componentKey">
+      <li>lol</li>
+      <li v-for="(candidat, index) in candidats" :key="index">
         {{ candidat }}
       </li>
     </ul>   
@@ -18,47 +19,24 @@ module.exports = {
   props: {
     candidats: { type: Array, default: [] },
     connected: { type: Boolean },
+    check : false
   },
   components: {
     Navbar,
   },
   data() {
     return {
-      newSample: {
-        entrance: "",
-        dish: "",
-        accompaniment: "",
-        dessert: "",
-        quantityentrance: "",
-        quantitydish: "",
-        quantityaccompaniment: "",
-        quantitydessert: "",
-      },
+      componentKey: 0
     };
   },
+  mounted(){
+      //this.forceRerender();
+      console.log(this.candidats)
+  },
   methods: {
-    addSample() {
-      if (
-        document.getElementById("dish").value == "" ||
-        document.getElementById("dish").value == null
-      ) {
-        document.getElementById("errorSampleMessage").innerHTML =
-          "Sélectionnez au moins un plat.";
-      } else if (
-        (document.getElementById("dish").value != "" &&
-          (document.getElementById("quantitydish").value <= 0 || document.getElementById("quantitydish").value == "")) ||
-        (document.getElementById("entrance").value != "" &&
-          (document.getElementById("quantityentrance").value <= 0 || document.getElementById("quantityentrance").value == "")) ||
-        (document.getElementById("accompaniment").value != "" &&
-          (document.getElementById("quantityaccompaniment").value <= 0 || document.getElementById("quantityaccompaniment").value == "")) ||
-        (document.getElementById("dessert").value != "" &&
-          (document.getElementById("quantitydessert").value <= 0 || document.getElementById("quantitydessert").value == ""))
-      ) {
-        document.getElementById("errorSampleMessage").innerHTML =
-          "Sélectionnez une quantité pour le(s) aliment(s) sélectionné(s).";
-      } else {
-        this.$emit("add-sample", this.newSample);
-      }
+    forceRerender() {
+      this.componentKey += 1
+      this.$forceUpdate();
     },
     logOut() {
       this.$emit("log-out");
