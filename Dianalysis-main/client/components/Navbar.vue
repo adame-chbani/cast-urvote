@@ -29,7 +29,7 @@
               <router-link class="nav-link" to="/">Accueil</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/lobby">Lobby</router-link>
+              <router-link class="nav-link" to="/lobby">Menu</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/me">Mon profil</router-link>
@@ -99,7 +99,7 @@ header div {
 }
 
 .navbar {
-  background-color: #0e0c0c;
+  background-color: #000000;
 }
 
 .navbar .navbar-brand span {
@@ -107,7 +107,7 @@ header div {
   font-size: 15px;
   text-transform: uppercase;
   font-weight: 700;
-  color: #ddd;
+  color: rgb(224, 209, 209);
 }
 
 .navbar .nav-item {
@@ -135,7 +135,7 @@ header div {
 .navbar .nav-item .nav-link {
   text-transform: uppercase;
   font-weight: 700;
-  color: #ddd;
+  color: rgb(236, 222, 222);
 }
 
 .navbar .nav-item .nav-link:first-letter {
@@ -146,6 +146,6 @@ header div {
   height: 100%;
 }
 #navbarNavDropdown {
-  background-color: #0e0c0c;
+  background-color: #000000;
 }
 </style>

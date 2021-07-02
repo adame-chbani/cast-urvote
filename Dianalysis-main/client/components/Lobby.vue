@@ -1,14 +1,12 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <nav class="Titre">
-      <h2>Bonjour à vous !</h2>
-    </nav>
+    
     <div id="section_y">
       <h2 class="title_container">Menu</h2>
       <div class="sommaire">
         <router-link class="summary" to="/sample">Voir la liste des candidats</router-link>
-        <router-link class="summary" to="/food">Liste des aliments</router-link>
+        <router-link class="summary" to="/food">Voter</router-link>
       </div>
     </div>
   </section>
@@ -34,7 +32,7 @@ module.exports = {
 <style scoped>
 .title_container{
     background: linear-gradient(#071e38, #040614);
-    background: linear-gradient(90deg, #071e38 0%, rgb(2, 2, 146) 46%, #071e38 100%);
+    background: linear-gradient(90deg, #9aa7b6 0%, rgb(81, 81, 161) 46%, #9aa7b6 100%);
     font-size: 60px;
     padding-top: 10px;
     color: white;
@@ -51,7 +49,7 @@ h2{
   color:#fff;
 }
 section {
-  background: linear-gradient(#071e38, #040614);
+  background: linear-gradient(#b1b9c4, #ffffff);
 }
 
 
@@ -90,7 +88,7 @@ section {
 
 .title_container {
     background: rgb(1,25,68);
-    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
+    background: linear-gradient(90deg, rgb(103, 122, 156) 0%, rgb(3, 3, 114) 46%, rgb(103, 122, 156) 100%);
     font-size: 60px;
     padding-top: 10px;
     color: white;

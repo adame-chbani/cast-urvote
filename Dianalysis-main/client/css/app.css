@@ -83,8 +83,8 @@ main{
 footer {
     clear:both;
     margin-top: auto;
-    color: rgb(145, 148, 150);
-    background-color: black;
+    color: rgb(146, 24, 24);
+    background-color: rgb(0, 0, 0);
     background-image: none;
     box-sizing: border-box;
     display: block;
