@@ -7,10 +7,8 @@
     <div id="section_y">
       <h2 class="title_container">Menu</h2>
       <div class="sommaire">
-        <router-link class="summary" to="/sample">Voter</router-link>
-        <router-link class="summary" to="/food">Liste des candidats</router-link>
-        <router-link class="summary" to="/advices">Nos conseils</router-link>
-        <router-link class="summary" to="/history">Historique de vote</router-link>
+        <router-link class="summary" to="/sample">Voir la liste des candidats</router-link>
+        <router-link class="summary" to="/food">Liste des aliments</router-link>
       </div>
     </div>
   </section>

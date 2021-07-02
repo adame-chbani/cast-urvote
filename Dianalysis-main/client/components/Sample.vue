@@ -1,133 +1,14 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <h2 class="title_container">Prise d'une mesure</h2>
+    <h2 class="title_container">Liste des candidats</h2>
 
-    <form @submit.prevent="addSample">     
-      <table id="formMesure">
-        <thead>
-          <tr>
-            <th>Aliments</th>
-            <th>Quantité (en g)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <label for="entrance">Entrée :</label>
-              <select
-                type="text"
-                name="entrance"
-                id="entrance"
-                placeholder="Selectionnez l'entrée"
-                v-model="newSample.entrance"
-              >
-                <option value="">Aucun</option>
-                <option v-for="f in food" :key="f.id" :value="f.name">
-                  {{ f.name }}
-                </option>
-              </select>
-            </td>
-            <td>
-              <input
-                type="number"
-                min="0.01"
-                step=".01"
-                id="quantityentrance"
-                v-model="newSample.quantityentrance"
-                placeholder="quantité"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for="dish">Plat* :</label>
-              <select
-                type="text"
-                name="dish"
-                id="dish"
-                placeholder="Selectionnez le plat"
-                v-model="newSample.dish"
-                required
-              >
-                <option value="">Aucun</option>
-                <option v-for="f in food" :key="f.id" :value="f.name">
-                  {{ f.name }}
-                </option>
-              </select>
-            </td>
-            <td>
-              <input
-                type="number"
-                min="0.01"
-                step=".01"
-                id="quantitydish"
-                v-model="newSample.quantitydish"
-                placeholder="quantité"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for="accompaniment">Accompagnement :</label>
-              <select
-                type="text"
-                name="accompaniment"
-                id="accompaniment"
-                placeholder="Selectionnez l'accompagnement"
-                v-model="newSample.accompaniment"
-              >
-                <option value="">Aucun</option>
-                <option v-for="f in food" :key="f.id" :value="f.name">
-                  {{ f.name }}
-                </option>
-              </select>
-            </td>
-            <td>
-              <input
-                type="number"
-                min="0.01"
-                step=".01"
-                id="quantityaccompaniment"
-                v-model="newSample.quantityaccompaniment"
-                placeholder="quantité"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for="dessert">Dessert :</label>
-              <select
-                type="text"
-                name="dessert"
-                id="dessert"
-                placeholder="Selectionnez le dessert"
-                v-model="newSample.dessert"
-              >
-                <option value="">Aucun</option>
-                <option v-for="f in food" :key="f.id" :value="f.name">
-                  {{ f.name }}
-                </option>
-              </select>
-            </td>
-            <td>
-              <input
-                type="number"
-                min="0.01"
-                step=".01"
-                id="quantitydessert"
-                v-model="newSample.quantitydessert"
-                placeholder="quantité"
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div>
-        <button class="button_style" type="submit">Envoyer</button>
-      </div>
-      <p id="errorSampleMessage"></p>
-    </form>
+    <ul id="example-2">
+      <li v-for="(candidats, index) in candidats">
+        {{ candidat }}
+      </li>
+    </ul>   
+    
   </section>
 </template>
 
@@ -135,7 +16,7 @@
 const Navbar = window.httpVueLoader("./components/Navbar.vue");
 module.exports = {
   props: {
-    food: { type: Array, default: [] },
+    candidats: { type: Array, default: [] },
     connected: { type: Boolean },
   },
   components: {

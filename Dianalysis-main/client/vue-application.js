@@ -30,15 +30,14 @@ var app = new Vue({
     router,
     el: '#app',
     data: {
-        food: [],
-        userdata: [],
+        candidats: [],
         connected: false
     },
     async mounted() {
+        this.candidats = this.getAllCandidats();
         console.log(document.cookie)
         var verif = this.readCookie("connected")
         if (verif.localeCompare("true") == 0){
-            console.log("finito")
             this.connected = true
         }
     },
@@ -85,6 +84,10 @@ var app = new Vue({
         },
         async logIn(user) {
             const userData = await axios.post('https://cast-ur-vote.herokuapp.com/login?type=user', user)
+                .then(function (response) {
+                    // handle success
+                    console.log(response);
+                })    
                 .catch(function(error) {
                     if (error.response.status === 400 || error.response.status === 401) {
                         document.getElementById('errorLogInMessage').innerHTML = "La combinaison est incorrecte.";
@@ -102,18 +105,16 @@ var app = new Vue({
                 router.push('/lobby')
             }
         },
-        async updateUser(modifiedUser) {
-            if (await axios.post('/api/updateUser/', modifiedUser)
+        async getAllCandidats() {
+            var res =await axios.get('http://127.0.0.1:5000/getcandidat')
+                .then(function (response) {
+                    return response.data
+                })
                 .catch(function(error) {
-                    if (error.response.status === 400) {
-                        document.getElementById('errorModifyUserMessage').innerHTML = "Le pseudo est déjà pris.";
-                    } else if (error.response.status === 401) {
-                        document.getElementById('errorModifyUserMessage').innerHTML = "L'adresse email est déjà prise.";
-                    }
-                })) {
-                this.connected = true;
-                router.push('/lobby')
-            }
+                    document.getElementById('errorSignUpMessage').innerHTML = "L'adresse email est déjà prise.";
+                })
+                console.log(res)
+            return res
         },
         logOut() {
             let date = (function(d){ d.setDate(d.getDate()-1); return d})(new Date)
