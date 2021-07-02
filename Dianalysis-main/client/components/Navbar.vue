@@ -3,11 +3,11 @@
     <nav class="navbar navbar-expand-lg">
       <router-link class="navbar-brand" to="/"
         ><img
-          src="./img/logo.png"
+          src="./img/logo1.png"
           alt="logo"
           class="img-fluid"
           width="48"
-        /><span>Dianalysis</span></router-link
+        /><span>Cast'Ur Vote</span></router-link
       >
       <button
         class="navbar-toggler"
@@ -84,7 +84,7 @@ header nav {
   height: 70px;
   display: flex;
   align-items: center;
-  background-color: #0e0c0c;
+  background-color: #ffffff;
   padding: 10px;
 }
 

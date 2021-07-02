@@ -2,15 +2,15 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <nav class="Titre">
-      <h2>(Re)Bonjour à vous !</h2>
+      <h2>Bonjour à vous !</h2>
     </nav>
     <div id="section_y">
-      <h2 class="title_container">Lobby</h2>
+      <h2 class="title_container">Menu</h2>
       <div class="sommaire">
-        <router-link class="summary" to="/sample">Prendre une mesure</router-link>
-        <router-link class="summary" to="/food">Liste des aliments</router-link>
+        <router-link class="summary" to="/sample">Voter</router-link>
+        <router-link class="summary" to="/food">Liste des candidats</router-link>
         <router-link class="summary" to="/advices">Nos conseils</router-link>
-        <router-link class="summary" to="/history">Votre historique</router-link>
+        <router-link class="summary" to="/history">Historique de vote</router-link>
       </div>
     </div>
   </section>
