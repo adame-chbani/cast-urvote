@@ -26,10 +26,12 @@ var app = new Vue({
     data: {
         candidats: [],
         user: [],
-        connected: false
+        connected: false,
+        vote : false,
     },
     async mounted() {
         await this.getAllCandidats();
+        await this.aVote()
         var verif = this.readCookie("connected")
         if (verif.localeCompare("true") == 0){
             this.connected = true
@@ -118,6 +120,38 @@ var app = new Vue({
                     console.log(error)
                 })
             this.candidats = res.data
+        },
+        // Verifie si l'utilisateur a déja voté ou non
+        async aVote() {
+            data = {
+                id_user : parseInt(this.readCookie('idUser')),
+            }
+            await axios.post('https://cast-ur-vote.herokuapp.com/avote', data)
+                .then(function (response) {
+                    this.vote = true;
+                })
+                .catch(function(error) {
+                    this.vote=false
+                   console.log(error)
+                })
+        },
+        // Voter
+        async voter(idcandidat) {
+            data = {
+                id_user : parseInt(this.readCookie('idUser')),
+                id_candidat : idcandidat
+            }
+            console.log(data)
+            
+            await axios.post('https://cast-ur-vote.herokuapp.com/vote', data)
+                .then(function (response) {
+                    console.log(response)
+                    this.vote = true;
+                })
+                .catch(function(error) {
+                    this.vote=true
+                    console.log(error)
+                })
         },
         logOut() {
             let date = (function(d){ d.setDate(d.getDate()-1); return d})(new Date)
