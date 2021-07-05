@@ -22,8 +22,8 @@
         </div>
 
         <div class="data_profile">
-        <h6>Pseudo&nbsp;:</h6>
-        <input type="text" name="username" placeholder="Identifiant utilisateur" class="input_style"/>
+        <h6>Numéro d'électeur&nbsp;:</h6>
+        <input type="text" name="username" placeholder="Numro d'électeur" class="input_style"/>
         </div>
       </div>
       <div class="collum2">
@@ -43,10 +43,7 @@
         </div>
       </div>
 
-      <div class="data_profile">
-        <h6>Taux de glucose journalier en g&nbsp;:</h6>
-        <input type="number" name="tauxGlucose" placeholder="Taux de glucose" class="input_style" id="glucose"/>
-        </div>
+      
 
     </div>
         <button type="submit" class="button_style">Valider les modifications</button>
@@ -100,10 +97,10 @@ module.exports = {
 
 .collum1{
   padding-top:20px;
-  width: 400px;
+  
 }
 .collum2{
-  padding-top:20px
+  padding-top:20px 
 }
 .input_style{
   border-color:rgb(73, 89, 231);
@@ -116,14 +113,15 @@ module.exports = {
 }
 
 .profile_container{
-  background-image: url("../img/fondbleu.jpg");
+  
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 #form_profile{
-  background: linear-gradient(#071e38, #040614);
+ background: rgb(74,95,205);
+  background: linear-gradient(90deg, rgba(74,95,205,1) 0%, rgba(221,227,233,1) 50%, rgba(252,69,69,1) 100%);
   flex-direction: column;
   margin: auto auto;
   flex-wrap: wrap;
@@ -163,7 +161,7 @@ input {
 }
 
 #vos_informations{
-  font-size:50px;
+  font-size:35px;
   color:white;
   margin: auto;
   text-align: center;
@@ -178,11 +176,9 @@ input {
 }
 
 .title_container {
-    background: rgb(1,31,95);
-    background: linear-gradient(90deg, #071e38 0%, rgb(2, 2, 146)  46%, #071e38 100%);
+    color:black;
     font-size: 45px;
     padding-top: 20px;
-    color: white;
     text-align: center;
     justify-content: center;
     margin: auto;
@@ -191,7 +187,7 @@ input {
 }
 
 section {
-background: linear-gradient(#071e38, #040614);
+background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
 }
 
 .button_style{

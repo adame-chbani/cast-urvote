@@ -4,7 +4,7 @@
     <section>
       <div id="container">
         <form @submit.prevent="addUser">
-           <img src="./img/logo1.png" id="img1" />
+           <img src="./img/logo-rond.png" id="img1" />
           <h1>Inscription</h1>
           <div>
             <p id="validateSignUpCandidate"></p>
@@ -141,7 +141,7 @@ module.exports = {
 
 <style scoped>
 #img1{
-   height: 95px;
+  height: 95px;
   width: 95px;
   margin:auto;
   display:block;
@@ -218,8 +218,9 @@ label {
   /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
   display: inline-block;
   color: rgb(0, 0, 0);
-  width: 120px;
+  width: 160px;
   text-align: right;
+  text-align: justify;
   
 }
 

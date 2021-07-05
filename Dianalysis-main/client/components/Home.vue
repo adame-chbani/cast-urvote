@@ -2,6 +2,7 @@
   <div>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <div id="showcase">
+      <div class="blur"><img src="screenfeed.png" alt="" /></div>
 
       <div>
         <h1>Bienvenue sur Cast'Ur Vote</h1>
@@ -54,9 +55,9 @@ module.exports = {
 </script>
 
 <style scoped>
+
 #showcase {
-  
-  background-image: url("../img/fond-vote-home.jpg");
+  background-image: url("../img/fond-vote.jpg");
   background-size: 100%;
   height: calc(100vh - 70px);
   color: #fff;

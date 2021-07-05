@@ -49,13 +49,16 @@ h2{
   color:#fff;
 }
 section {
-  background: linear-gradient(#b1b9c4, #ffffff);
+  background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
+  height: calc(100vh-351.13);
+
 }
 
 
 .section_y {
   height: 1vh;
   text-align: center;
+  
 }
 .sommaire {
   margin-bottom: 0%;
@@ -76,8 +79,8 @@ section {
   border: solid #000000;
   border-radius: 10px;
   padding-top: 45px;
-  margin-top: 30px;
-  margin-bottom:20px; 
+  margin-top: 100px;
+  margin-bottom:100px; 
 }
 
 .summary:hover {
