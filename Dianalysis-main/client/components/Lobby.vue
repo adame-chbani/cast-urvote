@@ -6,7 +6,7 @@
       
       <div class="sommaire">
         <router-link class="summary" to="/sample">Liste des candidats</router-link>
-        <router-link class="summary" to="/food">Voter</router-link>
+        <router-link class="summary" to="/vote">Voter</router-link>
       </div>
     </div>
   </section>

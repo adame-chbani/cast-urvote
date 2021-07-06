@@ -1,6 +1,7 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
+<<<<<<< HEAD
     <div class="profile_container">
       <form id="form_profile">
       <h2 class="title_container">Vos informations</h2>
@@ -50,6 +51,16 @@
       </form>
     </div>
     <p id="errorModifyUserMessage"></p>
+=======
+    <h2> Vos informations : </h2>
+    <ul>
+      <li><img :src="user[8]"/></li>
+      <li>Nom : {{user[1]}} </li>
+      <li>Prénom : {{user[2]}} </li>
+      <li> Date de naissance : {{this.date()}} </li>
+      <li>Adresse mail : {{user[4]}} </li>
+    </ul>
+>>>>>>> 2613ef8597321f06a5dff40c25aef5920bc36206
   </section>
 </template>
 
@@ -57,6 +68,7 @@
 const Navbar = window.httpVueLoader("./components/Navbar.vue");
 module.exports = {
   props: {
+    user: { type: Array, default: [] },
     connected: { type: Boolean },
   },
   components: {
@@ -64,36 +76,23 @@ module.exports = {
   },
   data() {
     return {
-      modifiedUser: {
-        username: "",
-        email: "",
-        password: "",
-        firstname: "",
-        lastname: "",
-        phone: "",
-      },
     };
   },
   methods: {
     logOut() {
       this.$emit("log-out");
     },
-    updateUser() {
-      if (
-        document.getElementById("password").value ==
-        document.getElementById("confirmationPassword").value
-      ) {
-        this.$emit("update-user", this.modifiedUser);
-      } else {
-        document.getElementById("errorModifyUserMessage").innerHTML =
-          "Mot de passe non identique.";
-      }
-    },
+    date(){
+      var l = this.user[3].split("-");
+      var date = l[2] + "/" + l[1] + "/" + l[0]
+      return date
+    }
   },
 };
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 
 .collum1{
   padding-top:20px;
@@ -164,16 +163,20 @@ input {
   font-size:35px;
   color:white;
   margin: auto;
+=======
+h2{
+  display: block;
+  color : white;
+>>>>>>> 2613ef8597321f06a5dff40c25aef5920bc36206
   text-align: center;
 }
 
-#errorModifyUserMessage{
-  margin: 0;
+ul{
+  display: block;
+  text-align: center;
+  list-style-type:none
 }
-
-.titre_centre{
-    text-align: center;
-}
+<<<<<<< HEAD
 
 .title_container {
     color:black;
@@ -188,20 +191,21 @@ input {
 
 section {
 background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
+=======
+li img{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 1%;
 }
 
-.button_style{
-    color:rgb(255, 255, 255);
-    border-color: rgb(0, 0, 0);
-    background-color: rgb(27, 44, 194);
-    border-radius:10px;
-    display: block;
-    margin: auto auto;
-    height: 2em;
-    margin-top: 10px;
-  }
-
-#errorSampleMessage{
-    margin: 0;
+section{
+  background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+>>>>>>> 2613ef8597321f06a5dff40c25aef5920bc36206
 }
+
 </style>

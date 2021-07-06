@@ -4,10 +4,7 @@ const SignUp = window.httpVueLoader('./components/SignUp.vue')
 const Lobby = window.httpVueLoader('./components/Lobby.vue')
 const Profile = window.httpVueLoader('./components/Profile.vue')
 const Sample = window.httpVueLoader('./components/Sample.vue')
-const Food = window.httpVueLoader('./components/Food.vue')
-const Advices = window.httpVueLoader('./components/Advices.vue')
-const History = window.httpVueLoader('./components/History.vue')
-const HistoryDetails = window.httpVueLoader('./components/HistoryDetails.vue')
+const Vote = window.httpVueLoader('./components/Vote.vue')
 
 const routes = [
     { path: '/', component: Home },
@@ -16,10 +13,7 @@ const routes = [
     { path: '/lobby', component: Lobby },
     { path: '/me', component: Profile },
     { path: '/sample', component: Sample },
-    { path: '/food', component: Food },
-    { path: '/advices', component: Advices },
-    { path: '/history', component: History },
-    { path: '/details/:id', component: HistoryDetails },
+    { path: '/vote', component: Vote },
 ]
 
 const router = new VueRouter({
@@ -31,6 +25,7 @@ var app = new Vue({
     el: '#app',
     data: {
         candidats: [],
+        user: [],
         connected: false
     },
     async mounted() {
@@ -38,9 +33,11 @@ var app = new Vue({
         var verif = this.readCookie("connected")
         if (verif.localeCompare("true") == 0){
             this.connected = true
+            await this.getCurrentUser()
         }
     },
     methods: {
+        // LIRE LES COOKIES
         readCookie(name) {
             var i, c, ca, nameEQ = name + "=";
             ca = document.cookie.split(';');
@@ -50,14 +47,13 @@ var app = new Vue({
                     c = c.substring(1,c.length);
                 }
                 if (c.indexOf(nameEQ) == 0) {
-                    console.log(c)
                     return c.substring(nameEQ.length,c.length);
                 }
             }
             return '';
         },
+        // INSCRIPTION NOUVEL UTILISATEUR
         async addUser(newUser) {
-            console.log(newUser)
             if (await axios.post('https://cast-ur-vote.herokuapp.com/signup?type=user', newUser)
                 .catch(function(error) {
                     document.getElementById('errorSignUpMessage').innerHTML = "L'adresse email est déjà prise.";
@@ -67,12 +63,11 @@ var app = new Vue({
                 document.cookie = "idUser="+ newUser.idUser;
                 document.cookie = "email="+ newUser.email;
                 document.cookie = "idCandidate="+ newUser.idCandidate;
-                console.log("document.cookie = " + document.cookie);
                 router.push('/lobby')
             }
         },
+        // INSCRIPTION NOUVEAU CANDIDAT
         async addACandidat(newUser) {
-            console.log(newUser)
             if (await axios.post('https://cast-ur-vote.herokuapp.com/signup?type=candidat', newUser)
                 .catch(function(error) {
                     document.getElementById('errorSignUpMessage').innerHTML = "L'adresse email est déjà prise.";
@@ -81,6 +76,7 @@ var app = new Vue({
                     document.getElementById('validateSignUpCandidate').style.visibility = 'visible';
             }
         },
+        // SE CONNECTER
         async logIn(user) {
             const userData = await axios.post('https://cast-ur-vote.herokuapp.com/login?type=user', user)   
                 .catch(function(error) {
@@ -96,15 +92,27 @@ var app = new Vue({
                 document.cookie = "idUser="+ userData.data.idUser;
                 document.cookie = "email="+ userData.data.email;
                 document.cookie = "idCandidate="+ userData.data.idCandidate;
-                console.log("document.cookie = " + document.cookie);
                 router.push('/lobby')
             }
+        },
+        // Information de l'utilisateur courrent 
+        async getCurrentUser() {
+                var email = { 
+                    email : this.readCookie('email') 
+                }
+                var res = await axios.post('https://cast-ur-vote.herokuapp.com/getuser', email)
+                .then(function(response){
+                    return response.data;
+                }).catch(function(error){
+                    console.log(error);
+                });
+                this.user = res.data
         },
         // LISTE DES CANDIDATS
         async getAllCandidats() {
             var res =await axios.get('https://cast-ur-vote.herokuapp.com/getcandidat')
                 .then(function (response) {
-                    return response.data
+                    return response.data;
                 })
                 .catch(function(error) {
                     console.log(error)
