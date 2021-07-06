@@ -128,7 +128,9 @@ var app = new Vue({
             }
             await axios.post('https://cast-ur-vote.herokuapp.com/avote', data)
                 .then(function (response) {
+                    console.log(response)
                     this.vote = true;
+                    console.log(this.vote)
                 })
                 .catch(function(error) {
                     this.vote=false

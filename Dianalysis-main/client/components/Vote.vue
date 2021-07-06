@@ -14,6 +14,13 @@
           </br>
           <button id="index" v-on:click="voter(index)">Voter</button>
         </div>
+
+        <div class="item" id="blanc">
+          <label class="name"> VOTE BLANC </label>
+          </br>
+          <button id="index" v-on:click="voter(0)">Voter</button>
+        </div>
+
       </div>
     </div>
 
@@ -61,14 +68,18 @@ module.exports = {
           var droite = parseInt($('div#choices').css('top'));
           droite -= hdiv;
           console.log(droite);
-          if( droite > -hdiv*6 && droite%hdiv == 0 ){
+          if( droite > -hdiv*7 && droite%hdiv == 0 ){
             $('div#choices').animate({ top: droite });
           }
         }
       });
     },
     voter(index) {
-      this.$emit("voter", index+1);
+      if(index == 0){
+        this.$emit("voter", 0);
+      }else{
+        this.$emit("voter", index+1);
+      }
     }
   },
 };
