@@ -3,7 +3,7 @@
     <navbar :connected="connected" @log-out="logOut"></navbar>
     
     <h2 class="title_container">Liste des candidats</h2>
-     <div class="container">
+     <div :vote="!vote" class="container">
       <div id="choices">
         <div v-for="(candidat, index) in candidats" :key="index" class="item" :id="index">
           <img :src="candidat[8]"/>
@@ -12,15 +12,19 @@
           </br>
           <label class="politique"> {{ candidat[9] }}</label>
           </br>
-          <button id="index">Voter</button>
+          <button id="index" v-on:click="voter(index)">Voter</button>
         </div>
       </div>
     </div>
 
-    <div id="dia-fleches">
+    <div :vote="vote == false" id="dia-fleches">
 		  <span id="dia-gauche" v-on:click="move()" >&lt;</span>
 		  <span id="dia-droite" v-on:click="move()">&gt;</span>
 	  </div>
+
+    <div v-if="vote" id="messageV">
+      Vous avez déjà voté !
+    </div>
 
   </section>
 </template>
@@ -31,9 +35,14 @@ module.exports = {
   props: {
     candidats : {type: Array, default: []},
     connected: { type: Boolean },
+    vote: { type: Boolean },
   },
   components: {
     Navbar,
+  },
+  async mounted(){
+    await this.$emit("a-vote");
+    console.log("le vote est" , this.vote)
   },
   methods: {
     logOut() {
@@ -58,6 +67,9 @@ module.exports = {
         }
       });
     },
+    voter(index) {
+      this.$emit("voter", index+1);
+    }
   },
 };
 </script>
@@ -168,5 +180,10 @@ button:hover {
   background-color: white;
   color: #000000;
   border: 1px solid #000000;
+}
+
+#messageV{
+  background-color: white;
+  color: black;
 }
 </style>
