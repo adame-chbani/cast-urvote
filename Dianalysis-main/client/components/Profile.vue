@@ -1,66 +1,14 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-<<<<<<< HEAD
-    <div class="profile_container">
-      <form id="form_profile">
-      <h2 class="title_container">Vos informations</h2>
-    <div class="collum">
-      <div class="collum1">
-        <div class="data_profile">
-          <h6>Mon prénom&nbsp;:</h6>
-        <input type="text" id="prenom" name="user_prenom" placeholder="Prénom" class="input_style"/>
-        </div>
-        
-        <div class="data_profile">
-        <h6>Mon nom&nbsp;:</h6>
-        <input type="text" id="nom" name="user_nom" placeholder="Nom" class="input_style"/>
-        </div>
-
-        <div class="data_profile">
-        <h6>Mon adresse e-mail&nbsp;:</h6>
-        <input id="email" name="email_message" placeholder=" E-mail" class="input_style"/>
-        </div>
-
-        <div class="data_profile">
-        <h6>Numéro d'électeur&nbsp;:</h6>
-        <input type="text" name="username" placeholder="Numro d'électeur" class="input_style"/>
-        </div>
-      </div>
-      <div class="collum2">
-        <div class="data_profile">
-        <h6>Mot de passe actuel&nbsp;:</h6>
-        <input type="password" name="actual_password" placeholder="Mot de passe" class="input_style"/>
-        </div>
-
-        <div class="data_profile">
-        <h6>Nouveau mot de passe&nbsp;:</h6>
-        <input type="password" name="new_mdp" placeholder="Saisissez votre nouveau mot de passe" class="input_style" id="password"/>
-        </div>
-
-        <div class="data_profile">
-        <h6>Confirmation du mot de passe&nbsp;:</h6>
-        <input type="text" name="new_mdp2" placeholder="Saisissez votre nouveau mot de passe" class="input_style" />
-        </div>
-      </div>
-
-      
-
-    </div>
-        <button type="submit" class="button_style">Valider les modifications</button>
-      </form>
-    </div>
-    <p id="errorModifyUserMessage"></p>
-=======
     <h2> Vos informations : </h2>
-    <ul>
+    <ul id="profil">
       <li><img :src="user[8]"/></li>
       <li>Nom : {{user[1]}} </li>
       <li>Prénom : {{user[2]}} </li>
       <li> Date de naissance : {{this.date()}} </li>
       <li>Adresse mail : {{user[4]}} </li>
     </ul>
->>>>>>> 2613ef8597321f06a5dff40c25aef5920bc36206
   </section>
 </template>
 
@@ -92,106 +40,20 @@ module.exports = {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-
-.collum1{
-  padding-top:20px;
-  
-}
-.collum2{
-  padding-top:20px 
-}
-.input_style{
-  border-color:rgb(73, 89, 231);
-  border-radius: 10px;
-}
-
-.data_profile{
-  color:white;
-  margin: 50px;
-}
-
-.profile_container{
-  
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-#form_profile{
- background: rgb(74,95,205);
-  background: linear-gradient(90deg, rgba(74,95,205,1) 0%, rgba(221,227,233,1) 50%, rgba(252,69,69,1) 100%);
-  flex-direction: column;
-  margin: auto auto;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 60px;
-  width: 100%;
-  height: clac(100vh - 200px);
-}
-
-.collum{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-
-div#first {
-  background-color: rgb(141, 128, 128);
-}
-div#first div {
-  display: inline-block;
-  width: 48%;
-}
-div#first div.gauche {
-  background-color: rgb(185, 178, 178);
-}
-div#first div.droite {
-  vertical-align: top;
-}
-
-div#first div h6,
-h3,
-input {
-  
-  margin-bottom: 10px;
-  width: 300px;
-}
-
-#vos_informations{
-  font-size:35px;
-  color:white;
-  margin: auto;
-=======
 h2{
-  display: block;
+  margin-top: 2%;
+  margin-left: 4%;
   color : white;
->>>>>>> 2613ef8597321f06a5dff40c25aef5920bc36206
   text-align: center;
 }
 
-ul{
+ul#profil{
+  margin-top: 5%;
   display: block;
   text-align: center;
-  list-style-type:none
+  list-style-type:none;
+  color: white;
 }
-<<<<<<< HEAD
-
-.title_container {
-    color:black;
-    font-size: 45px;
-    padding-top: 20px;
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-    height: 110px;
-    margin: 0;
-}
-
-section {
-background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
-=======
 li img{
   height: 200px;
   width: 200px;
@@ -204,8 +66,7 @@ section{
   background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
   align-items: center;
   font-family: "Montserrat", sans-serif;
-  height: 100%;
->>>>>>> 2613ef8597321f06a5dff40c25aef5920bc36206
+  height: 90vh;
 }
 
 </style>

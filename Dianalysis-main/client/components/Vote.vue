@@ -2,7 +2,7 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     
-    <h2 class="title_container">Liste des candidats</h2>
+    <h2 class="title_container"> Choisir un candidat</h2>
      <div :vote="!vote" class="container">
       <div id="choices">
         <div v-for="(candidat, index) in candidats" :key="index" class="item" :id="index">
@@ -50,6 +50,15 @@ module.exports = {
   async mounted(){
     await this.$emit("a-vote");
     console.log("le vote est" , this.vote)
+  },
+  watch: {
+    // whenever question changes, this function will run
+    vote: { 
+      function (newQuestion, oldQuestion) {
+      console.log("changé")
+      },
+      deep: true
+    }
   },
   methods: {
     logOut() {
@@ -112,7 +121,7 @@ div#choices{
 }
 
 .item{
-    margin-left: 2%;
+    margin-left: 1%;
     width: 100%;
     height: 60%;
     background-color:white;

@@ -34,6 +34,7 @@ var app = new Vue({
         await this.aVote()
         var verif = this.readCookie("connected")
         if (verif.localeCompare("true") == 0){
+            console.log("L'utilisateur est " ,this.connected)
             this.connected = true
             await this.getCurrentUser()
         }
@@ -128,7 +129,7 @@ var app = new Vue({
             }
             await axios.post('https://cast-ur-vote.herokuapp.com/avote', data)
                 .then(function (response) {
-                    console.log(response)
+                    $("div.container").hide();
                     this.vote = true;
                     console.log(this.vote)
                 })
@@ -147,7 +148,7 @@ var app = new Vue({
             
             await axios.post('https://cast-ur-vote.herokuapp.com/vote', data)
                 .then(function (response) {
-                    console.log(response)
+                    $("div.container").hide();
                     this.vote = true;
                 })
                 .catch(function(error) {
