@@ -22,16 +22,13 @@
         </div>
 
       </div>
+
     </div>
 
-    <div :vote="vote == false" id="dia-fleches">
+    <div id="dia-fleches">
 		  <span id="dia-gauche" v-on:click="move()" >&lt;</span>
 		  <span id="dia-droite" v-on:click="move()">&gt;</span>
 	  </div>
-
-    <div v-if="vote" id="messageV">
-      Vous avez déjà voté !
-    </div>
 
   </section>
 </template>
@@ -118,6 +115,7 @@ div.container{
 div#choices{
   position: relative;
   height: 100vh;
+  width: 100%;
 }
 
 .item{
@@ -181,7 +179,7 @@ section{
   background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
   align-items: center;
   font-family: "Montserrat", sans-serif;
-  height: 100%;
+  
 }
 
 button {
@@ -203,7 +201,15 @@ button:hover {
 }
 
 #messageV{
+  margin-top: 5%;
+  background-image: linear-gradient(to right top, #c33764, #a62a6f, #822675, #572676, #1d2671);
+  height: 65vh;
+  color: green;
+  text-align: center;
+}
+
+#messageV p{
+  font-size: 50px;
   background-color: white;
-  color: black;
 }
 </style>
